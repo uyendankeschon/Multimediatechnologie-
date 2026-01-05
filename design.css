@@ -1,0 +1,83 @@
+header {
+    display: flex;
+    justify-content: flex-end;   /* đẩy sang phải */
+    gap: 15px; /* khoảng cách giữa 2 nút */
+    padding: 20px;
+    background-color: #f8edeb;
+}
+
+.btn {
+    width: 120px;                /* 2 nút bằng nhau */
+    padding: 10px 0;
+    text-align: center;
+    border: 2px solid #333;
+    border-radius: 25px;         /* bo tròn hình chữ nhật */
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #333;
+    color: white;
+}
+
+.container {
+    display: flex;          /* xếp ngang */
+    gap: 20px;              /* khoảng cách giữa các div */
+    justify-content: center;
+}
+
+.card {
+    width: 250px;
+    padding: 20px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    background-color: bisque;
+    text-align: center;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 14px;
+}
+footer {
+    display: flex;
+    justify-content: space-between; /* 2 cột */
+    padding: 20px;
+    background-color: #d8e2dc;
+    align-items: flex-start; /* canh top */
+    gap: 20px;
+}
+
+/* Cột trái: xếp dọc */
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Cột phải: xếp dọc: tiêu đề trên, icon dưới */
+.footer-right {
+    display: flex;
+    flex-direction: column; /* quan trọng! */
+    gap: 10px;              /* khoảng cách tiêu đề – icon */
+}
+
+/* Hàng icon ngang */
+.footer-right .icons {
+    display: flex;
+    gap: 15px;
+}
+
+/* Icon hover */
+.footer-right img {
+    transition: transform 0.3s;
+}
+
+.footer-right img:hover {
+    transform: scale(1.1);
+}
