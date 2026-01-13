@@ -6,42 +6,92 @@
     <link rel="stylesheet" href="../design.css">
 </head>
 <header>
-    <a href="main.html" class="main-btn">uyenthanks</a>
+    <a href="main.html" class="header-btn">uyenthanks</a>
 
-    <div class="nav-right">
-        <a href="experiences.html" class="btn">about me</a>
-        <a href="contact.html" class="btn">contact</a>
+    <div class="header-music">
+        <img class="music-btn" src="../asset/musical-notes.png"
+             id="musical-note" alt="Musical Note">
+        <a href="experiences.html" class="btn">my experiences</a>
+
+        <div class="sidebar">
+            <a class="btn sidebar-icon">=</a>
+
+            <div class="sidebar-content">
+                <h3>‧₊˚Contact Me ☎︎</h3>
+                <p>Email: thanhuyen.phung@stud.h-da.de</p>
+                <p>Address: 64283 Darmstadt, Germany</p>
+                <section class="animation-section">
+                    <img src="../asset/cat.gif" alt="Animated GIF" class="my-gif">
+                </section>
+            </div>
+        </div>
     </div>
+    <audio autoplay hidden id="bgm">
+        <source src="../asset/sound.mp3" type="audio/mpeg">
+    </audio>
 </header>
 <body>
-<section class="hero">
-    <h1>Hi, I'm Thanh Uyen Phung</h1>
-    <p class="subtitle">Content Creator</p>
-    <p class="student">#Onkomm Student</p>
-</section>
+    <section class="main-section">
+        <!-- Cột trái: chữ -->
+        <div class="main-text">
+            <h1>Hi, I'm Thanh Uyen Phungᯓ★</h1>
+            <p class="main-subtitle">Aspiring<span class="highlight"> Content Creator</span>
+            </p>
+            <p class="main-student">#Onkomm Student</p>
 
-<section class="main-about">
-    <h2>About Me</h2>
-    <p>I create content across different platforms and enjoy working on creative projects that combine storytelling and media.</p>
+            <h2>About Me</h2>
+            <p>
+                I create content across different platforms and enjoy working on creative
+                projects that combine storytelling and media.
+            </p>
+        </div>
 
-    <div class="platforms">
-        <span>Youtube</span>
-        <span>TikTok</span>
-    </div>
-</section>
+        <!-- Cột phải: ảnh -->
+        <div class="main-image">
+            <img src="../asset/ava-main.jpeg" alt="main-avatar" class="main-avatar">
+        </div>
+    </section>
 
-<section class="video">
-    <iframe
-            src="https://www.youtube.com/embed/hy3sPY_XsU4"
-            title="YouTube video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-    </iframe>
-</section>
+    <section class="platforms-section">
+        <!-- Cột YouTube -->
+        <div class="platform-col">
+            <h3>YouTube</h3>
+            <iframe
+                    src="https://www.youtube.com/embed/hy3sPY_XsU4"
+                    title="YouTube video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Cột TikTok -->
+        <div class="platform-col">
+            <h3>TikTok</h3>
+            <video controls>
+                <source src="../asset/tiktok-video.mp4" type="video/mp4">
+            </video>
+        </div>
+    </section>
 
 </body>
+<script>
+    const btn = document.getElementById("musical-note");
+    const music = document.getElementById("bgm");
+    let isPlaying = false;
+
+    btn.addEventListener("click", () => {
+        if (isPlaying === false) {
+            music.play();
+            btn.classList.add("active");
+        } else {
+            music.pause();
+            btn.classList.remove("active");
+        }
+        isPlaying = !isPlaying;
+    });
+</script>
 <footer>
-    <div class="footer-col about">
+    <div class="footer-col me">
         <h3>Thanh Uyen</h3>
         <p>#Onkomm Student @hda</p>
     </div>
@@ -49,19 +99,25 @@
     <div class="footer-col links">
         <h3>Quick Links</h3>
         <a href="experiences.html">My Experiences</a>
-        <a href="contact.html">Contact</a>
     </div>
 
     <div class="footer-col connect">
         <h3>Connect</h3>
         <div class="socials">
             <a href="https://www.instagram.com/uyenthanks/" target="_blank">
-                <img src="../asset/instagram.png" alt="Instagram">
+                <img src="../asset/instagram.svg" alt="Instagram">
             </a>
             <a href="https://www.linkedin.com/in/thanh-uyen-phung-98bb6b234/" target="_blank">
-                <img src="../asset/linkedin.png" alt="LinkedIn">
+                <img src="../asset/linkedin.svg" alt="LinkedIn">
+            </a>
+            <a href="https://www.tiktok.com/@uyenthanks" target="_blank">
+                <img src="../asset/tiktok.svg" alt="TikTok">
+            </a>
+            <a href="https://www.youtube.com/@uyenthanks" target="_blank">
+                <img src="../asset/youtube.svg" alt="Youtube">
             </a>
         </div>
     </div>
 </footer>
+
 </html>

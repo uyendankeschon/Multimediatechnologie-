@@ -3,35 +3,152 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
-    background-color: #f8edeb;
+    background-color: #FFE5D9;
 }
 
-.main-btn {
+.header-btn {
     font-size: 22px;
     font-weight: 700;
     text-decoration: none;
-    color: #333;
+    color: #9d8189;
 }
-
-.nav-right {
+.header-music {
     display: flex;
     gap: 15px;
+    align-items: center;
 }
-
 .btn {
     width: 120px;                /* 2 nút bằng nhau */
     padding: 10px 0;
     text-align: center;
-    border: 2px solid #333;
+    border: 2px solid #FCD5CE;
     border-radius: 25px;         /* bo tròn hình chữ nhật */
     text-decoration: none;
-    color: #333;
+    color: #9d8189;
     font-weight: bold;
 }
 
 .btn:hover {
     background-color: #333;
     color: white;
+}
+.music-btn {
+    width: 30px;
+    height: 30px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    opacity: 0.4;          /* mặc định: mờ (tắt nhạc) */
+    transition: opacity 0.3s ease;
+}
+.music-btn.active {
+    opacity: 1;            /* không mờ (đang phát nhạc) */
+}
+/* Container sidebar */
+.sidebar {
+    position: relative;
+    display: inline-block;
+    z-index: 1000;
+}
+
+/* Icon sidebar */
+.sidebar-icon {
+    cursor: pointer;
+    font-size: 18px;
+    padding: 8px;
+}
+
+/* Nội dung sidebar */
+.sidebar-content {
+    position: absolute;
+    top: 0;
+    color: #6b705c;
+    right: -220px; /* ban đầu ẩn bên phải */
+    width: 200px;
+    background-color: #e8e8e4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, right 0.3s ease;
+}
+
+/* Hover: hiện sidebar */
+.sidebar:hover .sidebar-content {
+    opacity: 1;
+    pointer-events: auto;
+    right: 40px; /* trượt vào vị trí */
+}
+
+.animation-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* căn giữa */
+    padding: 40px;
+}
+
+.my-gif {
+    width: 100px;        /* chỉnh kích thước theo nhu cầu */
+    height: auto;
+}
+
+.main-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 2 cột bằng nhau */
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 60px 40px;
+    gap: 200px;
+    opacity: 0;                 /* ban đầu ẩn */
+    transform: translateX(-50px); /* dịch sang trái */
+    animation: fadeInRight 1s forwards; /* animation chạy khi load */
+    animation-delay: 0.3s;
+}
+@keyframes fadeInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0); /* trở về vị trí gốc */
+    }
+}
+/* Cột chữ */
+.main-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #6d6875;
+}
+.main-student {
+    font-size: 14px;
+    color: #999;
+}
+.main-subtitle {
+    font-size: 20px;
+    color: #555;
+}
+.main-subtitle .highlight {
+    color: #8a8691; /* đổi màu Content Creator */
+    font-weight: 550; /* (tuỳ chọn) làm chữ nổi hơn */
+    font-size: 20px
+}
+/* Cột ảnh */
+.main-image {
+    display: flex;
+    justify-content: flex-end; /* ảnh sang phải */
+    width: 250px;             /* chiều rộng hiển thị */
+    height: 300px;            /* chiều cao hiển thị */
+    overflow: hidden;         /* ẩn phần thừa */
+    border-radius: 20px;      /* bo tròn hình chữ nhật */
+    border: 3px solid #ddbea9;
+}
+.main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;        /* cắt vào phần trung tâm của ảnh */
+    object-position: center;     /* có thể chỉnh top/center/bottom */
 }
 
 .container {
@@ -51,7 +168,7 @@ header {
     flex: 1;
     padding: 18px;
     border-radius: 16px;
-    background-color: bisque;
+    background-color: #ffe8d6;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
 }
@@ -62,11 +179,12 @@ header {
 
 .card h3 {
     margin-bottom: 10px;
-    ;
+    color: #cb997e;
 }
 
 .card p {
     font-size: 14px;
+    color: #cb997e;
 }
 
 .about {
@@ -74,6 +192,11 @@ header {
     gap: 60px;
     padding: 60px 80px;
     align-items: flex-start;
+    opacity: 0;                 /* ban đầu ẩn */
+    transform: translateX(-50px); /* dịch sang trái */
+    animation: fadeInRight 1s forwards; /* animation chạy khi load */
+    animation-delay: 0.3s;
+
 }
 
 .avatar {
@@ -89,6 +212,7 @@ header {
 
 .experience-content h2 {
     font-size: 32px;
+    color: #6d6875;
     margin-bottom: 15px;
 }
 
@@ -103,22 +227,8 @@ html, body {
     padding: 0;
     overflow-x: hidden;
     font-family: monospace;
+    background-color: #F8EDEB;
 }
-
-.hero h1 {
-    font-size: 48px;
-}
-
-.subtitle {
-    font-size: 20px;
-    color: #555;
-}
-
-.student {
-    font-size: 14px;
-    color: #999;
-}
-
 .platforms span {
     margin-right: 15px;
     font-weight: bold;
@@ -126,7 +236,6 @@ html, body {
 
 footer {
     width: 100%;
-    position: fixed;
     left: 0;
     bottom: 0;
     display: flex;
@@ -134,7 +243,7 @@ footer {
     align-items: flex-start;
     padding: 40px 40px;
     background-color: #d8e2dc;
-    color: black;
+    color: #6b705c;
     flex-wrap: wrap;
 }
 
@@ -154,7 +263,7 @@ footer {
 }
 
 .footer-col.links a {
-    color: black;
+    color: #6b705c;
     text-decoration: none;
     margin-bottom: 8px;
 }
@@ -167,4 +276,38 @@ footer {
 .socials img {
     width: 28px;
     height: 28px;
+}
+
+.platforms-section {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr; /* 2 cột bằng nhau */
+    gap: 20px;                      /* khoảng cách giữa 2 cột */
+    padding: 40px;
+    opacity: 0;              /* ban đầu ẩn */
+    transform: translateY(20px); /* trượt nhẹ từ dưới lên */
+    animation: fadeInRight 1s forwards; /* animation chạy khi load */
+    animation-delay: 0.3s;
+}
+
+.platform-col h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-align: center;
+    color: #6d6875;
+}
+
+.platform-col iframe {
+    width: 100%;
+    height: 300px; /* bạn có thể tăng giảm */
+    border: none;
+    border-radius: 12px;
+}
+
+.platform-col video {
+    width: auto;
+    height: 300px;
+    border: none;
+    border-radius: 12px;
 }

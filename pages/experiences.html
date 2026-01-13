@@ -2,16 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>My Experiences</title>
     <link rel="stylesheet" href="../design.css">
 </head>
 <header>
-    <a href="main.html" class="main-btn">uyenthanks</a>
+    <a href="main.html" class="header-btn">uyenthanks</a>
 
-    <div class="nav-right">
-        <a href="experiences.html" class="btn">about me</a>
-        <a href="contact.html" class="btn">contact</a>
+    <div class="header-music">
+        <img class="music-btn" src="../asset/musical-notes.png"
+             id="musical-note" alt="Musical Note">
+        <a href="experiences.html" class="btn">my experiences</a>
+        <div class="sidebar">
+            <a class="btn sidebar-icon">=</a>
+
+            <div class="sidebar-content">
+                <h3>‧₊˚Contact Me ☎︎</h3>
+                <p>Email: thanhuyen.phung@stud.h-da.de</p>
+                <p>Address: 64283 Darmstadt, Germany</p>
+                <section class="animation-section">
+                    <img src="../asset/cat.gif" alt="Animated GIF" class="my-gif">
+                </section>
+            </div>
+        </div>
     </div>
+    <audio autoplay hidden id="bgm">
+        <source src="../asset/sound.mp3" type="audio/mpeg">
+    </audio>
 </header>
 <body>
 <section class="about">
@@ -20,31 +36,57 @@
     <div class="experience-content">
         <h2>My Experiences</h2>
         <p class="intro">
-            blah blah blah blah blah blah blah blah blah blah
+            Experience in event management and marketing, including team coordination,
+            strategic planning, and successful execution of large-scale cultural events.
         </p>
 
         <div class="cards">
             <div class="card">
                 <h3>TEDxULIS</h3>
-                <p>Mô tả nội dung thứ nhất</p>
+                <p>Hanoi, Vietnam
+                    Responsible for leading and coordinating
+                    teams of up to 5 employees to implement
+                    various marketing strategies.</p>
             </div>
 
             <div class="card">
                 <h3>Monsoon Music Festival</h3>
-                <p>Mô tả nội dung thứ hai</p>
+                <p>Hanoi, Vietnam
+                    Responsible for leading a team of up to 10 employees and organizing
+                    an eight-day event series at six locations with over 10,000 participants.</p>
             </div>
 
             <div class="card">
-                <h3>IF The Musical</h3>
-                <p>Mô tả nội dung thứ ba</p>
+                <h3>IF: The Musical</h3>
+                <p>Hanoi, Vietnam
+                    Jointly responsible for costume design and
+                    logistical planning of the entire event.
+                    Successful execution of the event with
+                    over 400 attendees.</p>
             </div>
         </div>
     </div>
 </section>
 
 </body>
+<script>
+    const btn = document.getElementById("musical-note");
+    const music = document.getElementById("bgm");
+    let isPlaying = false;
+
+    btn.addEventListener("click", () => {
+        if (!isPlaying) {
+            music.play();
+            btn.classList.add("active");
+        } else {
+            music.pause();
+            btn.classList.remove("active");
+        }
+        isPlaying = !isPlaying;
+    });
+</script>
 <footer>
-    <div class="footer-col about">
+    <div class="footer-col me">
         <h3>Thanh Uyen</h3>
         <p>#Onkomm Student @hda</p>
     </div>
@@ -52,17 +94,22 @@
     <div class="footer-col links">
         <h3>Quick Links</h3>
         <a href="experiences.html">My Experiences</a>
-        <a href="contact.html">Contact</a>
     </div>
 
     <div class="footer-col connect">
         <h3>Connect</h3>
         <div class="socials">
             <a href="https://www.instagram.com/uyenthanks/" target="_blank">
-                <img src="../asset/instagram.png" alt="Instagram">
+                <img src="../asset/instagram.svg" alt="Instagram">
             </a>
             <a href="https://www.linkedin.com/in/thanh-uyen-phung-98bb6b234/" target="_blank">
-                <img src="../asset/linkedin.png" alt="LinkedIn">
+                <img src="../asset/linkedin.svg" alt="LinkedIn">
+            </a>
+            <a href="https://www.tiktok.com/@uyenthanks" target="_blank">
+                <img src="../asset/tiktok.svg" alt="TikTok">
+            </a>
+            <a href="https://www.youtube.com/@uyenthanks" target="_blank">
+                <img src="../asset/youtube.svg" alt="Youtube">
             </a>
         </div>
     </div>
